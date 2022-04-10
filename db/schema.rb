@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_12_31_171955) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "tweets", force: :cascade do |t|
+  create_table "tweets", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "twitter_account_id", null: false
     t.text "body"
@@ -27,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_12_31_171955) do
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
-  create_table "twitter_accounts", force: :cascade do |t|
+  create_table "twitter_accounts", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
     t.string "username"
@@ -39,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_12_31_171955) do
     t.index ["user_id"], name: "index_twitter_accounts_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
